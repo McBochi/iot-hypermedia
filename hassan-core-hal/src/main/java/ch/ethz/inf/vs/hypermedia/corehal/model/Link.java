@@ -70,8 +70,9 @@ public class Link {
 		return observable != null;
 	}
 
-	public void setObservable(boolean observable) {
+	public Link setObservable(boolean observable) {
 		this.observable = observable ? true : null;
+		return this;
 	}
 
 	public String getUrl(String url) {
