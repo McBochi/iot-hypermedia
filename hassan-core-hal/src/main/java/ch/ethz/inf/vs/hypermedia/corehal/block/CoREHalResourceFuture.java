@@ -53,7 +53,7 @@ import java.util.stream.StreamSupport;
 public class CoREHalResourceFuture<V extends CoREHalBase> extends ResourceFuture<V> implements ObservableFuture<V> {
 	private static final Logger LOGGER = Logger.getLogger(CoapRequestFuture.class.getName());
 
-	public static Gson gson = null;
+	private static Gson gson = null;
 
 	public boolean isForceFullLoad() {
 		return forceFullLoad;
@@ -69,7 +69,7 @@ public class CoREHalResourceFuture<V extends CoREHalBase> extends ResourceFuture
 	}
 
 	public static GsonBuilder getGsonBuilder() {
-		return new GsonBuilder().registerTypeAdapter(LinkList.class, new LinkListDeserializer()).registerTypeAdapter(OptionalList.class, new OptionalListDeserializer()).registerTypeAdapter(FormList.class, new FormListDeserializer()).serializeNulls();
+		return new GsonBuilder().registerTypeAdapter(LinkList.class, new LinkListDeserializer()).registerTypeAdapter(OptionalList.class, new OptionalListDeserializer()).registerTypeAdapter(FormList.class, new FormListDeserializer());
 	}
 
 	public static <V extends CoREHalResourceFuture> V createFromWebLink(Supplier<V> type, WebLink item) {
