@@ -31,6 +31,8 @@ public class Link {
 
 	private String type;
 
+	private Boolean observable;
+
 	@SerializedName("name")
 	private OptionalList<String> names;
 
@@ -62,6 +64,14 @@ public class Link {
 	public Link setType(String type) {
 		this.type = type;
 		return this;
+	}
+
+	public boolean isObservable() {
+		return observable != null;
+	}
+
+	public void setObservable(boolean observable) {
+		this.observable = observable ? true : null;
 	}
 
 	public String getUrl(String url) {
