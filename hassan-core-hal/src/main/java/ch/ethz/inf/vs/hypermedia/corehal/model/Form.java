@@ -17,6 +17,8 @@
 package ch.ethz.inf.vs.hypermedia.corehal.model;
 
 import ch.ethz.inf.vs.hypermedia.corehal.OptionalList;
+
+import com.google.gson.JsonObject;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -35,6 +37,8 @@ public class Form {
 	private String input;
 	private String type;
 	private Boolean templated;
+
+	private JsonObject preFilled;
 
 	public Form(String method, String href, String accepts) {
 		this.method = method;
@@ -124,6 +128,30 @@ public class Form {
 
 	public Form setType(String type) {
 		this.type = type;
+		return this;
+	}
+
+	public Form addPreFilled(String property, String value) {
+		if (preFilled == null) {
+			this.preFilled = new JsonObject();
+		}
+		preFilled.addProperty(property, value);
+		return this;
+	}
+
+	public Form addPreFilled(String property, Integer value) {
+		if (preFilled == null) {
+			this.preFilled = new JsonObject();
+		}
+		preFilled.addProperty(property, value);
+		return this;
+	}
+
+	public Form addPreFilled(String property, Double value) {
+		if (preFilled == null) {
+			this.preFilled = new JsonObject();
+		}
+		preFilled.addProperty(property, value);
 		return this;
 	}
 }
