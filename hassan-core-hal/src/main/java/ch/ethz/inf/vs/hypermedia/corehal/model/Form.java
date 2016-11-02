@@ -32,6 +32,7 @@ public class Form {
 	private String href;
 	private String method;
 	private String accepts;
+	private String[] includes;
 	private String[] excludes;
 	private String value;
 	private String input;
@@ -70,6 +71,15 @@ public class Form {
 
 	public Form setAccepts(String accepts) {
 		this.accepts = accepts;
+		return this;
+	}
+
+	public String[] getIncludes() {
+		return includes;
+	}
+
+	public Form setIncludes(String[] includes) {
+		this.includes = includes;
 		return this;
 	}
 
